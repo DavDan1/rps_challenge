@@ -3,7 +3,37 @@ import { Button } from "semantic-ui-react";
 
 const items = ["Rock", "Paper", "Scissors"];
 class GameInterface extends Component {
+  startGame = () => {
+    this.setState({
+      computer: items[Math.floor(Math.random() * items.length)],
+    });
+    this.setState({
+      message: this.playingGame(),
+    });
+  };
 
+  selectItem = (item) => {
+    this.setState({
+      player: item,
+      message: "",
+    });
+  };
+
+  playingGame = () => {
+    const { player, computer } = this.state;
+
+    if (player === computer) {
+      return "It's a Tie!";
+    } else if (
+      (player === "rock" && computer === "scissors") ||
+      (player === "paper" && computer === "rock") ||
+      (player === "scissors" && computer === "paper")
+    ) {
+      return "Victory!";
+    } else {
+      return "You Lost";
+    }
+  };
 
  
   
