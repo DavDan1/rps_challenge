@@ -12,6 +12,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "sass": "^1.32.11",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -19,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cy:open": "cypress open & yarn start"
+    "cy:open": "cypress open & yarn start",
+    "cypress": "start-server-and-test start:silent http://localhost:3000/ cy:open"
   },
   "eslintConfig": {
     "extends": [
@@ -38,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^7.2.0"
   }
 }

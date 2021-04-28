@@ -1,16 +1,14 @@
-import React from "react";
-import "./App.css";
+import React, { Component } from "react";
+import { Container, Header } from "semantic-ui-react";
+//import 'semantic-ui-css/semantic.min.css'
 
-function App() {
-  const play = 'Play'
-  return (
-    <div className="container">
-      <h1>My App</h1>
-      <button onClick={play}>
-      Play
-    </button>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Container>
+        <Header data-cy="my-game">My Game</Header>
+      </Container>
+    );
+  }
 }
-
 export default App;
