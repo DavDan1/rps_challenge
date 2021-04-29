@@ -1,11 +1,26 @@
 import React, { Component } from "react";
-import { Button } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
+import Buttons from './Buttons'
+import 'semantic-ui-css/semantic.min.css'
+
 
 const items = ["Rock", "Paper", "Scissors"];
+
 class GameInterface extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      player: items[0],
+      computer: items[0],
+      message: "",
+      isGameActive: false,
+      isStartButtonActive: true,
+    };
+  }
+  
   startGame = () => {
     this.setState({
-      computer: items[Math.floor(Math.random() * items.length)],
+      computer: items[Math.floor(Math.random() * 3)],
     });
     this.setState({
       message: this.playingGame(),
@@ -36,30 +51,12 @@ class GameInterface extends Component {
   };
 
  
-  
-  selectItem = (item) => {
-    this.setState({
-      player: item,
-      message: "",
-    });
-  };
   render() {
     return (
-      <div>
-        <Button data-cy="rock-button" onClick={() => this.selectItem("Rock")}>
-          Rock
-        </Button>
-        <Button data-cy="paper-button" onClick={() => this.selectItem("Paper")}>
-          Paper
-        </Button>
-        <Button
-          data-cy="scissors-button"
-          onClick={() => this.selectItem("Scissors")}
-        >
-          Scissors
-        </Button>
-      </div>
-    );
-  }
-}
+      <Container >
+        <Buttons/>
+      </Container >
+  
+    )
+  }}
 export default GameInterface;
