@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Grid, Button, Container } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 
-
 const items = ["Rock", "Paper", "Scissors"];
 class Buttons extends Component {
   constructor(props) {
@@ -50,9 +49,9 @@ class Buttons extends Component {
     if (player === computer) {
       return "It's a Tie!";
     } else if (
-      (player === "rock" && computer === "scissors") ||
-      (player === "paper" && computer === "rock") ||
-      (player === "scissors" && computer === "paper")
+      (player === "Rock" && computer === "Scissors") ||
+      (player === "Paper" && computer === "Rock") ||
+      (player === "Scissors" && computer === "Paper")
     ) {
       return "You Win!";
     } else {
@@ -62,7 +61,7 @@ class Buttons extends Component {
   render() {
     const { player, computer, message } = this.state;
     return (
-      <Container textAlign="center">
+      <Container textAlign="center" data-cy="game-container">
         {this.state.isStartButtonActive ? (
           <button
             id="start"
@@ -76,7 +75,10 @@ class Buttons extends Component {
         ) : null}
 
         <Grid.Row centered columns={3}>
-          <div className="message" data-cy="result-text"> {message ? this.playingGame() : message}</div>
+          <div className="message" data-cy="result-text">
+            {" "}
+            {message ? this.playingGame() : message}
+          </div>
           {this.state.isGameActive ? (
             <div>
               <Button
@@ -109,11 +111,11 @@ class Buttons extends Component {
             </div>
           ) : null}
           {this.state.isGameActive ? (
-          <div id="battle">
-            <div data-cy="player" item={player} />
-            <div data-cy="computer" item={computer} />
-          </div>
-        ) : null}
+            <div id="battle">
+              <div data-cy="player" item={player} />
+              <div data-cy="computer" item={computer} />
+            </div>
+          ) : null}
         </Grid.Row>
       </Container>
     );
