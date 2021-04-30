@@ -1,5 +1,5 @@
 describe("Game starts when player chooses an item", () => {
-  it("plays tie the game", () => {
+  it("plays wins the game", () => {
     cy.visit("/", {
       onBeforeLoad(window) {
         cy.stub(window.Math, "floor").returns(2);
@@ -23,7 +23,7 @@ describe("Game starts when player chooses an item", () => {
     });
     cy.get('[data-cy="result-text"]').should("contain.text", "It's a Tie!");
   });
-  it("plays tie the game", () => {
+  it("Computer Wins the game", () => {
     cy.visit("/", {
       onBeforeLoad(window) {
         cy.stub(window.Math, "floor").returns(0);
