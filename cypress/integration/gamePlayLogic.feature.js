@@ -14,7 +14,7 @@ describe("Game starts when player chooses an item", () => {
     cy.get('[data-cy="result-text"]').should("contain.text", "It's a Tie!");
     cy.get('[data-cy="paper-button"]').click();
 
-    cy.get('[data-cy="result-text"]').should("contain.text", "Computer Wins!");
+    cy.get('[data-cy="result-text"]').should("contain.text", "You Win!");
     cy.get('[data-cy="scissors-button"]').click();
     cy.get('[data-cy="result-text"]').should("contain.text", "Computer Wins!");
   });

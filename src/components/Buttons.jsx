@@ -38,6 +38,7 @@ class Buttons extends Component {
   startGame = () => {
     this.setState({
       computer: items[Math.floor(Math.random() * items.length)],
+      message: this.playingGame()
     });
     this.setState({
       message: this.playingGame(),
@@ -50,9 +51,9 @@ class Buttons extends Component {
     if (player === computer) {
       return "It's a Tie!";
     } else if (
-      (player === "rock" && computer === "scissors") ||
-      (player === "paper" && computer === "rock") ||
-      (player === "scissors" && computer === "paper")
+      (player === "Rock" && computer === "Scissors") ||
+      (player === "Paper" && computer === "Rock") ||
+      (player === "Scissors" && computer === "Paper")
     ) {
       return "You Win!";
     } else {
@@ -62,7 +63,7 @@ class Buttons extends Component {
   render() {
     const { player, computer, message } = this.state;
     return (
-      <Container textAlign="center">
+      <Container textAlign="center" data-cy='game-container'>
         {this.state.isStartButtonActive ? (
           <button
             id="start"
